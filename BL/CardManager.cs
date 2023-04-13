@@ -73,10 +73,9 @@ namespace UATP.BL
         private string GenerateCardNumber()
         {
             // Generate a 15-digit random number
-            Random random = new Random();
-            long cardNumber = random.Next(100000000000000, 999999999999999);
+            Random random = new Random();            
 
-            return cardNumber.ToString();
+            return $"{random.Next(99999).ToString().PadLeft(5, '0')}{random.Next(99999).ToString().PadLeft(5, '0')}{random.Next(99999).ToString().PadLeft(5, '0')}";
         }
     }
 

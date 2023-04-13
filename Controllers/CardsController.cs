@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UATP.BL;
+using UATP.Models;
 
 namespace UATP
 {
@@ -34,7 +35,7 @@ namespace UATP
         public ActionResult<decimal> Pay(string cardNumber, decimal amount)
         {
             // Calculate the payment fee
-            decimal fee = _paymentFeeCalculator.CalculateFee();
+            decimal fee = _paymentFeeCalculator.CalculateFee(amount);
 
             // Process the payment and return the remaining balance
             decimal remainingBalance = _cardManager.Pay(cardNumber, amount + fee);

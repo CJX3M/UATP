@@ -16,7 +16,7 @@ namespace UATP.BL
             return _currentFee;
         }
 
-        private void UpdateFee(object state)
+        public void UpdateFee(object state = default)
         {
             _currentFee *= GenerateRandomFee();
         }
